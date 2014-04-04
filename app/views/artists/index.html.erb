@@ -6,8 +6,9 @@
 
 <% @artists.each do |artist| %>
   <%= image_tag artist.image_url, size: "150x150" %>
-  <%= artist.username %>
-  <%= artist.email %>
+  <%= link_to artist.username, artist_pieces_path(artist)%> <!--Link to selected artist's gallery -->
   <br>
+  
+  
 <% end %>
 </div>

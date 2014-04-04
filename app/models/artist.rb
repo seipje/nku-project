@@ -1,6 +1,7 @@
 class Artist < ActiveRecord::Base 
   
   has_secure_password
+  has_many :pieces, dependent: :destroy
   
   validates :name, 
     :presence => true, 

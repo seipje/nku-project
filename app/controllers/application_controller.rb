@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  before_action :require_login
+  
   def current_artist
     @current_artist ||= Artist.find(session[:artist_id]) if session[:artist_id].present?
   end
@@ -11,8 +13,8 @@ class ApplicationController < ActionController::Base
   private
  
   def require_login
-    unless session[:student_id] != nil
-      redirect_to login_page_path # halts request cycle
+    unless session[:artist_id] != nil
+      redirect_to new_session_path # halts request cycle
     end
   end
 end

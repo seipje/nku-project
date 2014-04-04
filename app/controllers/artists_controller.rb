@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+  
   def index
     @current_artist = current_artist
     @artists = Artist.all
