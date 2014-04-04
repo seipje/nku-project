@@ -10,6 +10,13 @@ gem 'bootstrap-sass'
 gem 'thin'
 gem 'bcrypt'
 
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
+
+gem "bcrypt-ruby"
+
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

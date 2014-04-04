@@ -1,0 +1,13 @@
+<div class="container" align="center">
+<h1>Welcome to ShareArt!</h1>
+<br>
+
+<h3>All Artists</h3>
+
+<% @artists.each do |artist| %>
+  <%= image_tag artist.image_url, size: "150x150" %>
+  <%= artist.username %>
+  <%= artist.email %>
+  <br>
+<% end %>
+</div>
