@@ -5,6 +5,7 @@ NkuProject::Application.routes.draw do
     resources :pieces
   end
   resources :sessions
+  resources :pieces
   
   
   get "sign_out", to: "sessions#destroy", as: :destroy_session
