@@ -1,6 +1,14 @@
 <div class="container" align="center">
 <h1>Pieces</h1>
   
-  <%= button_to "Upload a Piece", new_artist_piece_path, :method => :get %> 
+  <%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
+  <br>
+  <% @all_pieces.each do |piece| %>
+    <%= image_tag piece.photo.url(:small) %>
+    <%= piece.piece_name %>
+    <%= piece.piece_owner %>
+    <%= piece.category %>
+  <br>
+<% end %>
   
-<br>
+

@@ -16,6 +16,7 @@ gem 'less-rails'
 
 gem "bcrypt-ruby"
 
+gem "paperclip", "~> 4.1"
 
 group :development, :test do
   gem 'byebug'
