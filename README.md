@@ -14,6 +14,10 @@ Example:
 # 4-18
 ```
 As a user of the site
+I want to upload my drawings
+So that my friends can see them
+
+As a user of the site
 I want to view my own pieces
 So I can review my progress
 
@@ -21,3 +25,14 @@ As a user of the site
 I want to view other artists' pieces
 So I can learn from other people's work
 ```
+
+Example:
+1. Visit the homepage
+2. Click "View Pieces" to go to Pieces page
+3. Click "Upload a Piece" 
+4. Fill out form
+5. View new piece in a list of your pieces
+6. Go to homepage by clicking on ShareArt in the menu bar
+7. Click on other users' names to view their artwork
+
+
