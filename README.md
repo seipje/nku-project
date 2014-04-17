@@ -25,7 +25,7 @@ As a user of the site
 I want to view other artists' pieces
 So I can learn from other people's work
 ```
-
+----------
 Example:
 1. Visit the homepage
 2. Click "View Pieces" to go to Pieces page
