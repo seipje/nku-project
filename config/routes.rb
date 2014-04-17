@@ -9,5 +9,6 @@ NkuProject::Application.routes.draw do
   
   
   get "sign_out", to: "sessions#destroy", as: :destroy_session
+  
 
 end

@@ -3,7 +3,14 @@ class PiecesController < ApplicationController
   def index
     @current_artist = current_artist
     @all_pieces = Piece.all
-    #@pieces = Artist.find(params[:artist_id]).pieces
+    
+    if params[:artist_id].nil?
+      @artist = @current_artist
+    else
+      @artist  = Artist.find(params[:artist_id])
+    end
+    
+    @pieces = @artist.pieces
   end
   
   def create
@@ -16,10 +23,21 @@ class PiecesController < ApplicationController
     @current_artist = current_artist
     @piece = Piece.new
   end
-end
+
+  def destroy
+    @piece = Piece.find(params[:id])
+    @piece.destroy
+ 
+    redirect_to pieces_path
+  end
+  
+  def my_pieces
+    @current_artist = current_artist
+  end
 
 private
-
   def piece_params
+    params[:piece][:artist_id] = current_artist.id
     params.require(:piece).permit!
   end
+end

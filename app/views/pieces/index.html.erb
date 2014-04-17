@@ -3,12 +3,13 @@
   
   <%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
   <br>
-  <% @all_pieces.each do |piece| %>
+  
+  
+  <% @pieces.each do |piece| %>
     <%= image_tag piece.photo.url(:small) %>
     <%= piece.piece_name %>
-    <%= piece.piece_owner %>
+    <%= piece.artist_id %>
     <%= piece.category %>
+    <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
   <br>
 <% end %>
-  
-

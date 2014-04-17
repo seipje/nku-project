@@ -1,7 +1,8 @@
 class Artist < ActiveRecord::Base 
   
   has_secure_password
-  has_many :pieces, dependent: :destroy
+  has_many :pieces, 
+    dependent: :destroy
   
   validates :name, 
     :presence => true, 
@@ -9,6 +10,7 @@ class Artist < ActiveRecord::Base
     :uniqueness => true
  
   
-  validates :email, presence: true
+  validates :email,  
+    :uniqueness => true
 
 end
