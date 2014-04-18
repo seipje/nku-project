@@ -8,6 +8,7 @@
   <% @pieces.each do |piece| %>
     <%= image_tag piece.photo.url(:small) %>
     <%= piece.piece_name %>
+    <%= %>
     <%= piece.artist_id %>
     <%= piece.category %>
     <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
