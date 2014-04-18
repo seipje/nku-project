@@ -5,12 +5,12 @@ class PiecesController < ApplicationController
     @all_pieces = Piece.all
     
     if params[:artist_id].nil?
-      @artist = @current_artist
+      #@artist = @current_artist
+      @pieces = Piece.all
     else
-      @artist  = Artist.find(params[:artist_id])
+      artist  = Artist.find(params[:artist_id])
+      @pieces = artist.pieces
     end
-    
-    @pieces = @artist.pieces
   end
   
   def create
