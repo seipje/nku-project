@@ -11,6 +11,8 @@
     <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%>
     <%= piece.artist_id %>
     <%= piece.category %>
-    <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
+    <% if piece.artist_id == current_artist.id %>
+      <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
+    <% end %>
   <br>
 <% end %>
