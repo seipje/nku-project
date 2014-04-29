@@ -4,6 +4,8 @@ class ArtistsController < ApplicationController
   def index
     @current_artist = current_artist
     @artists = Artist.all
+    
+    @counter = 0
   end
   
   def create

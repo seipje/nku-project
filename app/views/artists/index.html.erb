@@ -4,12 +4,18 @@
 <h3>All Artists</h3>
   <table class="table table-bordered">
     <% @artists.each do |artist| %>
+      <% @counter = @counter + 1 %>
+      <% if @counter%5 == 0 %>
+        <tr>
+      <% end %>
       <td>
-      <%= image_tag artist.image_url, size: "150x150" %>
+      <%= link_to (image_tag artist.image_url, size: "150x150"), artist_pieces_path(artist) %>
       <br>
       <%= link_to artist.username, artist_pieces_path(artist)%> <!--Link to selected artist's gallery -->
       </td>
-    
+      <% if @counter%4 == 0 %>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 </div>
