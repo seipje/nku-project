@@ -8,6 +8,7 @@ class ArtistsController < ApplicationController
   
   def create
     @artist = Artist.create!(artist_params)
+    session[:artist_id] = @artist.id
     redirect_to artists_path, notice: "Hi #{@artist.name}. Welcome to ShareArt!"
   end
   

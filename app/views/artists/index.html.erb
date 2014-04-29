@@ -1,14 +1,15 @@
 <div class="container" align="center">
 <h1>Welcome to ShareArt!</h1>
 <br>
-
 <h3>All Artists</h3>
-
-<% @artists.each do |artist| %>
-  <%= image_tag artist.image_url, size: "150x150" %>
-  <%= link_to artist.username, artist_pieces_path(artist)%> <!--Link to selected artist's gallery -->
-  <br>
-  
-  
-<% end %>
+  <table class="table table-bordered">
+    <% @artists.each do |artist| %>
+      <td>
+      <%= image_tag artist.image_url, size: "150x150" %>
+      <br>
+      <%= link_to artist.username, artist_pieces_path(artist)%> <!--Link to selected artist's gallery -->
+      </td>
+    
+    <% end %>
+  </table>
 </div>

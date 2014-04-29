@@ -1,9 +1,9 @@
-<%= form_for( @student, as: :student, url: :login_process, method: :post ) do |f| %>
+<%= form_for( @artist, as: :artist, url: :new_session, method: :post ) do |f| %>
 
-   <% if @student.errors.any? %>
+   <% if @artist.errors.any? %>
   <div id="error_messages">
     <ul>
-    <% @student.errors.full_messages.each do |msg| %>
+    <% @artist.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
