@@ -3,13 +3,14 @@ class PiecesController < ApplicationController
   def index
     @current_artist = current_artist
     @all_pieces = Piece.all
-    @artist = Artist.find(params[:artist_id])
+    @counter = 0
+    
     
     if params[:artist_id].nil?
       @pieces = Piece.all
     else
-      artist  = Artist.find(params[:artist_id])
-      @pieces = artist.pieces
+      @artist  = Artist.find(params[:artist_id])
+      @pieces = @artist.pieces
     end
   end
   
