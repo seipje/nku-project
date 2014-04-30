@@ -1,5 +1,6 @@
 class Piece < ActiveRecord::Base
   belongs_to :artist
+  has_many :comments
   
   has_attached_file :photo, :styles => {:small => '150x150>', :large => '500x500>' }, :url => "/assets/pieces/:id/:style/:basename.:extension", :path => ":rails_root/public/assets/pieces/:id/:style/:basename.:extension"
   

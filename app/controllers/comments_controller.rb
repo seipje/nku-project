@@ -4,6 +4,9 @@ class CommentsController < ApplicationController
     @comment = @piece.comments.create(params[:comment].permit(:commenter, :body))
     redirect_to post_path(@piece)
   end
+  
+  def new
+  end
 
   #def destroy
   #  @piece = Post.find(params[:post_id])

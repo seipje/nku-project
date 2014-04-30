@@ -1,4 +1,9 @@
-<%= image_tag @piece.photo.url(:large)%>
+<div class="container" align="center">
+  <h1><%= @piece.piece_name %></h1>
+    <%= image_tag @piece.photo.url(:large)%>
+  <br />
+  <br />
+  <%= button_to "Add a Comment", new_piece_comment_path(@piece), :method => :get %>
+    Show comments and shit
 
-Type stuff?
-
+</div>
