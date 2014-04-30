@@ -15,7 +15,7 @@ class PiecesController < ApplicationController
   
   def show
     @current_artist = current_artist
-    
+    @piece = Piece.find(params[:id])
   end
   
   def create

@@ -6,7 +6,8 @@
   
   
   <% @pieces.each do |piece| %>
-    <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %>
+    
+  <%= link_to (image_tag piece.photo.url(:small)), piece_path(piece), :data => {:colorbox => true} %>
     <%= piece.piece_name %>
     <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%>
     <%= piece.artist_id %>
