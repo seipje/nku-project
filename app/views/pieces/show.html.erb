@@ -4,6 +4,12 @@
   <br />
   <br />
   <%= button_to "Add a Comment", new_piece_comment_path(@piece), :method => :get %>
-    Show comments and shit
+   
 
+  <% @comments.each do |comment| %>
+  <%= comment.body %>
+  <br>
+  <%= comment.artist.name %>
+  <br>
+  <% end %>
 </div>

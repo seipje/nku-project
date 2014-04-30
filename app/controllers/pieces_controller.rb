@@ -5,7 +5,6 @@ class PiecesController < ApplicationController
     @all_pieces = Piece.all
     
     if params[:artist_id].nil?
-      #@artist = @current_artist
       @pieces = Piece.all
     else
       artist  = Artist.find(params[:artist_id])
@@ -16,6 +15,7 @@ class PiecesController < ApplicationController
   def show
     @current_artist = current_artist
     @piece = Piece.find(params[:id])
+    @comments = @piece.comments
   end
   
   def create

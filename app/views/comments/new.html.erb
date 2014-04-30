@@ -1,0 +1,7 @@
+<div class="row" align="center">
+  <h2> Add your feedback for <%=@piece.piece_name %> <h2>
+    <%= form_for(:comment, url: piece_comments_path(@piece), method: :post) do |f| %>
+  <%= f.text_area "body" %>
+  <%= f.submit 'Submit' %>
+    <% end %>
+</div>
