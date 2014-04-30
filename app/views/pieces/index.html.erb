@@ -1,5 +1,5 @@
 <div class="container" align="center">
-<h1>Pieces</h1>
+<h1><%= @artist.username %>'s Portfolio</h1>
   
   <%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
   <br>
@@ -8,8 +8,8 @@
   <% @pieces.each do |piece| %>
     
     <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %>
-    <%= link_to piece.piece_name, piece_path(piece)%>
-    <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%>
+    <%= link_to piece.piece_name, piece_path(piece)%> <br>
+    <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%><br>
     <%= piece.artist_id %>
     <%= piece.category %>
     <% if piece.artist_id == current_artist.id %>

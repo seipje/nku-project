@@ -7,9 +7,9 @@
 
   <% @comments.each do |comment| %>
   <hr>
-  <%= comment.body %>
+  "<%= comment.body %>"
   <br>
-  <em><%= link_to comment.artist.name, artist_pieces_path(comment.artist) %></em>
+  <em>~<%= link_to comment.artist.username, artist_pieces_path(comment.artist) %></em>
   <br>
   <% end %>
 </div>
