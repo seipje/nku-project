@@ -45,6 +45,9 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
+    colorbox-rails (0.1.1)
+      jquery-rails
+      rails (>= 3.1.1)
     columnize (0.3.6)
     commonjs (0.2.7)
     daemons (1.1.9)
@@ -172,6 +175,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  colorbox-rails
   factory_girl_rails
   jquery-rails
   less-rails

@@ -13,6 +13,11 @@ class PiecesController < ApplicationController
     end
   end
   
+  def show
+    @current_artist = current_artist
+    
+  end
+  
   def create
     @current_artist = current_artist
     @piece = Piece.create!(piece_params)

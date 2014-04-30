@@ -9,9 +9,9 @@
         <tr>
       <% end %>
       <td>
-      <%= link_to (image_tag artist.image_url, size: "150x150"), artist_pieces_path(artist) %>
+      <%= link_to (image_tag artist.image_url, size: "200x200"), artist_pieces_path(artist) %>
       <br>
-      <%= link_to artist.username, artist_pieces_path(artist)%> <!--Link to selected artist's gallery -->
+      <%= artist.username %> <!--Link to selected artist's gallery -->
       </td>
       <% if @counter%4 == 0 %>
         </tr>

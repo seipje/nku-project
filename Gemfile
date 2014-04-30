@@ -18,6 +18,8 @@ gem "bcrypt-ruby"
 
 gem "paperclip", "~> 4.1"
 
+gem "colorbox-rails"
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
