@@ -50,6 +50,9 @@ As an artist
 I want to see the other artists' comments on my pieces
 So I can get feedback on my work
 
+As an artist
+I want to be able to edit my pieces
+In case want to update it
 ```
 ----------
 Example:
