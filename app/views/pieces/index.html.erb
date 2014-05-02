@@ -1,27 +1,33 @@
 <div class="container" align="center">
-<h1><%= @artist.username %>'s Portfolio</h1>
+  <% if @artist.id == current_artist.id %>
+    <h1> All Pieces </h1>
+  <% else %>
+    <h1><%= @artist.username %>'s Portfolio</h1>
+  <% end %>
   
-<%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
-<br>
-<div class="new_container">
-  <table class="table table-bordered">
-    
-      <% @pieces.each_slice(4) do |piece| %>
-      <tr>
-        <% piece.each do |piece| %>
-          <td>
-            <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %><br>
-            <%= link_to piece.piece_name, piece_path(piece)%> <br>
-            <% if !(@artist.id == current_artist.id) %>
-              <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%><br>
-            <% end %>
-            <%= piece.category %>
-            <% if piece.artist_id == current_artist.id %>
-              <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
-            <% end %>
-          </td>
+  <%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
+  <br>
+  <div class="new_container">
+    <table class="table table-bordered">
+      
+        <% @pieces.each_slice(4) do |piece| %>
+        <tr>
+          <% piece.each do |piece| %>
+            <td>
+              <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %><br>
+              <%= link_to piece.piece_name, piece_path(piece)%> <br>
+              <%= piece.category %><br>
+              <% if !(@artist.id == current_artist.id) %>
+                <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%><br>
+              <% else %>
+                <%= link_to "Edit", edit_piece_path(piece) %><br>
+              <% end %>
+              <% if piece.artist_id == current_artist.id %>
+                <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
+              <% end %>
+            </td>
+        <% end %>
+        </tr>
       <% end %>
-      </tr>
-    <% end %>
-  </table>
-</div>
+    </table>
+  </div>

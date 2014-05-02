@@ -32,16 +32,23 @@ class PiecesController < ApplicationController
     @current_artist = current_artist
     @piece = Piece.new
   end
+  
+  def edit
+    @current_artist = current_artist
+    @piece = Piece.find(params[:id])
+  end
+
+  def update
+    @piece = Piece.find(params[:id])
+    @piece.update_attributes!(piece_params)
+    redirect_to artist_pieces_path(current_artist), notice: "Successfully updated your piece!"
+  end
 
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
  
     redirect_to artist_pieces_path(current_artist), notice: "#{@piece.piece_name} successfully deleted!"
-  end
-  
-  def my_pieces
-    @current_artist = current_artist
   end
 
 private

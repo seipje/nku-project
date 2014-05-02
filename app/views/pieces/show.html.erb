@@ -1,5 +1,6 @@
 <div class="container" align="center">
   <h1><%= @piece.piece_name %></h1>
+  <h4>By <%= @piece.artist.username %> </h4>
     <%= image_tag @piece.photo.url(:large)%>
   <br />
   <br />
