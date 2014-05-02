@@ -6,3 +6,22 @@
  *= require_tree .
  *= require colorbox-rails
 */
+
+td{
+ background-color: #EEEEEE; 
+ border-style:solid;
+}
+
+
+  
+.new_container{
+  border-style:solid;
+}
+
+.piece img {
+    width: 100%;
+}
+
+table{
+   table-layout: fixed;
+}

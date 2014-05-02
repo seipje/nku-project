@@ -1,28 +1,27 @@
 <div class="container" align="center">
 <h1><%= @artist.username %>'s Portfolio</h1>
   
-  <%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
-  <br>
-  
+<%= button_to "Upload a Piece", new_piece_path, :method => :get %> 
+<br>
+<div class="new_container">
   <table class="table table-bordered">
     
-      <% @pieces.each do |piece| %>
-        <% @counter = @counter + 1 %>
-        <% if @counter%5 == 0 %>
-          <tr>
-        <% end %>
-        <td>
-          <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %><br>
-          <%= link_to piece.piece_name, piece_path(piece)%> <br>
-          <% if !(@artist.id == current_artist.id) %>
-            <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%><br>
-          <% end %>
-          <%= piece.category %>
-          <% if piece.artist_id == current_artist.id %>
-            <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
-          <% end %>
+      <% @pieces.each_slice(4) do |piece| %>
+    <tr>
+        <% piece.each do |piece| %>
+          <td>
+            <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %><br>
+            <%= link_to piece.piece_name, piece_path(piece)%> <br>
+            <% if !(@artist.id == current_artist.id) %>
+              <%= link_to piece.artist.username, artist_pieces_path(piece.artist)%><br>
+            <% end %>
+            <%= piece.category %>
+            <% if piece.artist_id == current_artist.id %>
+              <%= link_to "Delete Piece", piece_path(piece), :method => :delete %>
+            <% end %>
           </td>
-      <% if @counter%4 == 0 %>
-      </tr>
       <% end %>
-<% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

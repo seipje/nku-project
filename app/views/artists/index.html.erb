@@ -2,20 +2,26 @@
 <h1>Welcome to ShareArt!</h1>
 <br>
 <h3>All Artists</h3>
+  <div class="new_container">
   <table class="table table-bordered">
-    <% @artists.each do |artist| %>
-      <% @counter = @counter + 1 %>
-      <% if @counter%5 == 0 %>
-        <tr>
-      <% end %>
+    
+    <% @artists.each_slice(4) do |artist| %>
+      <tr>
+        <% artist.each do |artist| %>
       <td>
-      <%= link_to (image_tag artist.image_url, size: "200x200"), artist_pieces_path(artist) %>
+        <div>
+          <% if artist.image_url? %>
+            <%= link_to (image_tag artist.image_url, size: "200x200"), artist_pieces_path(artist) %>
+          <% else %>
+            <%= link_to (image_tag "sa_logo.png", size: "200x200"), artist_pieces_path(artist) %>
+          <% end %>
+        </div>
       <br>
-      <%= artist.username %> <!--Link to selected artist's gallery -->
+      <%= artist.username %>
       </td>
-      <% if @counter%4 == 0 %>
-        </tr>
       <% end %>
+      </tr>
     <% end %>
   </table>
+  </div>
 </div>
