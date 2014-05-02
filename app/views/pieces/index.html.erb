@@ -7,7 +7,7 @@
   <table class="table table-bordered">
     
       <% @pieces.each_slice(4) do |piece| %>
-    <tr>
+      <tr>
         <% piece.each do |piece| %>
           <td>
             <%= link_to (image_tag piece.photo.url(:small)), piece.photo.url(:large), :data => {:colorbox => true} %><br>

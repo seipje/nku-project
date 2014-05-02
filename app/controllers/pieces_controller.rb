@@ -8,6 +8,7 @@ class PiecesController < ApplicationController
     
     if params[:artist_id].nil?
       @pieces = Piece.all
+      @artist = Artist.find(current_artist.id)
     else
       @artist  = Artist.find(params[:artist_id])
       @pieces = @artist.pieces
@@ -23,7 +24,8 @@ class PiecesController < ApplicationController
   def create
     @current_artist = current_artist
     @piece = Piece.create!(piece_params)
-    redirect_to pieces_path, notice: "#{@piece.piece_name} successfully added!"
+    #redirect_to pieces_path, notice: "#{@piece.piece_name} successfully added!"
+    redirect_to artist_pieces_path(current_artist), notice: "#{@piece.piece_name} successfully added!"
   end
   
   def new
@@ -35,7 +37,7 @@ class PiecesController < ApplicationController
     @piece = Piece.find(params[:id])
     @piece.destroy
  
-    redirect_to pieces_path
+    redirect_to artist_pieces_path(current_artist), notice: "#{@piece.piece_name} successfully deleted!"
   end
   
   def my_pieces
